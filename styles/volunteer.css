@@ -1,0 +1,146 @@
+.text {
+  font-family: Poppins;
+}
+
+.header {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: 700px;
+}
+
+
+.left-side {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 100px;
+  margin-left: 10px;
+}
+
+
+.right-side {
+  display: flex;
+  align-items: center;
+}
+
+.about-button, .donate-button, .contact-button  {
+  font-family: Poppins, Arial;
+  background-color:rgb(255, 255, 255);
+  color:black; 
+  border-width: 0px;
+  border-color: black;
+  border-style: solid; 
+  margin-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 25px;
+  font-weight:bold;
+  font-size: 35px;
+  cursor:pointer;
+  transition: background-color 0.15s,
+    color 0.15s;
+}
+
+
+.donate-button:hover{
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.about-button:hover{
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.contact-button:hover{
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+.website-title { 
+  font-family: Poppins, Arial;
+  color: black; 
+  font-size: 100px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.desciption {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+.desciption-text {
+  margin-top: 30px;
+  font-family: Poppins, Arial;
+  color:rgb(73, 73, 73); 
+  font-size: 25px;
+  text-align: center;
+}
+
+
+.volunteerForm {
+  border-radius: 50px;
+}
+
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 500px;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: Poppins, Arial;
+  color: rgb(77, 77, 77);
+}
+
+/* Submit button */
+input[type="submit"] {
+  background-color: #35b439;
+  color: white;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: Poppins, Arial;
+}
+
+input[type="submit"]:hover {
+  background-color: #389f3d;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+label {
+  font-family: Poppins, Arial;
+  color: black; 
+  font-size: 22px;
+}

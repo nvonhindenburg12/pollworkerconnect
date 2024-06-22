@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="volunteer.js"></script>
+    <title>Volunteer</title>
+    <link rel="stylesheet" href="styles/Volunteer.css">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+
+
+    <div class="header">
+
+  
+      <div class="left-side">
+        <a href="./index.html">
+          <img class="logo-img" src="images/logo.png">
+        </a>
+      </div>
+
+      <div class="right-side">
+        <a href="./contact.html" >
+          <button class="contact-button">Contact Us</button>
+        </a>
+        <a href="./donate.html" >
+          <button class="donate-button">Donate</button>
+        </a>
+        <a href="./about.html" >
+          <button class="about-button">About Us</button>
+        </a>
+      </div> 
+
+    </div>
+
+    <div class="title">
+      <p class="website-title">Volunteer Sign Up</p>
+    </div>
+    
+    <div class="form">
+    <form id="volunteerForm">
+      <label for="Your University">Select Your School or University:</label><br>
+      <select id="University" name="University" onchange="redirectToPage(this)">
+        <option value="">School or University</option>
+        <option value="university.html">Road to Vote University</option>
+      
+      </select><br><br>
+  
+      <input type="submit" onclick="redirectToDestination()" value="Submit">
+    </div>
+    </form>
+  
+    <div id="response"></div>
+
+
+
+    
+  
+    
+  </body>
+  </html>

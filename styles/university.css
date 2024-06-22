@@ -1,0 +1,95 @@
+.text {
+  font-family: Poppins;
+}
+
+.header {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: 700px;
+}
+
+
+.left-side {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 100px;
+  margin-left: 10px;
+}
+
+
+.right-side {
+  display: flex;
+  align-items: center;
+}
+
+.home-button, .donate-button, .contact-button  {
+  font-family: Poppins, Arial;
+  background-color:rgb(255, 255, 255);
+  color:black; 
+  border-width: 0px;
+  border-color: black;
+  border-style: solid; 
+  margin-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 25px;
+  font-weight:bold;
+  font-size: 35px;
+  cursor:pointer;
+  transition: background-color 0.15s,
+    color 0.15s;
+}
+
+
+.donate-button:hover{
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.home-button:hover{
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.contact-button:hover{
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+.website-title { 
+  font-family: Poppins, Arial;
+  color: black; 
+  font-size: 70px;
+  margin-top: 70px;
+  margin-bottom: 0px;
+}
+
+.desciption {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+.desciption-text {
+  margin-top: 30px;
+  font-family: Poppins, Arial;
+  color:rgb(73, 73, 73); 
+  font-size: 25px;
+  text-align: center;
+}
