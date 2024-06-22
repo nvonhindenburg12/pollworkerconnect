@@ -27,7 +27,7 @@
   align-items: center;
 }
 
-.about-button, .donate-button, .contact-button  {
+.home-button, .donate-button, .contact-button  {
   font-family: Poppins, Arial;
   background-color:rgb(255, 255, 255);
   color:black; 
@@ -53,7 +53,7 @@
   color: white;
 }
 
-.about-button:hover{
+.home-button:hover{
   background-color: rgb(0, 0, 0);
   color: white;
 }
@@ -74,12 +74,12 @@
 .website-title { 
   font-family: Poppins, Arial;
   color: black; 
-  font-size: 100px;
-  margin-top: 30px;
-  margin-bottom: 50px;
+  font-size: 70px;
+  margin-top: 70px;
+  margin-bottom: 0px;
 }
 
-.description {
+.description, .sign-up, .signUp {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -87,60 +87,45 @@
 
 
 .description-text {
-  margin-top: 30px;
+  margin-top: 40px;
   font-family: Poppins, Arial;
   color:rgb(73, 73, 73); 
-  font-size: 25px;
+  font-size: 20px;
+  text-align: center;
+  width: 70%
+}
+
+
+.signUp-text {
+  margin-top: 40px;
+  font-family: Poppins, Arial;
+  color:rgb(73, 73, 73); 
+  font-size: 35px;
   text-align: center;
 }
 
 
-.volunteerForm {
-  border-radius: 50px;
-}
 
-
-input[type="text"],
-input[type="number"],
-select {
-  width: 500px;
-  padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-  border-radius: 16px;
-  box-sizing: border-box;
-  font-size: 20px;
+.signUp-button {
   font-family: Poppins, Arial;
-  color: rgb(77, 77, 77);
-}
-
-/* Submit button */
-input[type="submit"] {
-  background-color: #35b439;
-  color: white;
-  margin-top: 10px;
-  padding: 10px 20px;
+  background-color:rgb(0, 0, 0);
+  color:rgb(255, 255, 255); 
   border: none;
-  border-radius: 16px;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 35px;
+  font-weight :bold;
+  font-size: 35px;
   cursor: pointer;
-  font-size: 20px;
-  font-family: Poppins, Arial;
+  transition: box-shadow 0.15s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 }
 
-input[type="submit"]:hover {
-  background-color: #389f3d;
-}
-
-.form {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-
-label {
-  font-family: Poppins, Arial;
-  color: black; 
-  font-size: 22px;
+.signUp-button:hover {
+  padding: 15px 25px;
+  border-radius: 45px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.75);
 }

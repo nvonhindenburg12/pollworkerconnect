@@ -79,17 +79,50 @@
   margin-bottom: 0px;
 }
 
-.desciption {
+.description, .sign-up, .signUp{
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
 
-.desciption-text {
+.description-text {
   margin-top: 30px;
   font-family: Poppins, Arial;
   color:rgb(73, 73, 73); 
   font-size: 25px;
   text-align: center;
 }
+
+
+
+
+.signUp-button {
+  font-family: Poppins, Arial;
+  background-color:rgb(0, 0, 0);
+  color:rgb(255, 255, 255); 
+  border: none;
+  margin-top: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 35px;
+  font-weight :bold;
+  font-size: 35px;
+  cursor: pointer;
+  transition: box-shadow 0.15s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.signUp-button:hover {
+  padding: 15px 25px;
+  border-radius: 45px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.75);
+}
+
+.text {
+  margin-bottom: 50px;
+}
+
+

@@ -79,14 +79,14 @@
   margin-bottom: 0px;
 }
 
-.desciption {
+.description {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
 
-.desciption-text {
+.description-text {
   margin-top: 30px;
   font-family: Poppins, Arial;
   color:rgb(73, 73, 73); 
