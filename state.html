@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="state.js"></script>
+    <title>State/Jurisdiction</title>
+    <link rel="stylesheet" href="styles/Volunteer.css">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+
+
+    <div class="header">
+
+  
+      <div class="left-side">
+        <a href="./index.html">
+          <img class="logo-img" src="images/logo.png">
+        </a>
+      </div>
+
+      <div class="right-side">
+        <a href="./contact.html" >
+          <button class="contact-button">Contact Us</button>
+        </a>
+        <a href="./donate.html" >
+          <button class="donate-button">Donate</button>
+        </a>
+        <a href="./about.html" >
+          <button class="about-button">About Us</button>
+        </a>
+      </div> 
+
+    </div>
+
+    <div class="title">
+      <p class="website-title">State/Jurisdiction</p>
+    </div>
+    
+    <div class="form">
+    <form id="volunteerForm">
+      <label for="Your University">Select Your State or Jurisdiction</label><br>
+      <select id="University" name="University" onchange="redirectToPage(this)">
+        <option value="">State/Jurisdiction</option>
+        <option value="alabama.html">Alabama</option> 
+        <option value="alaska.html">Alaska</option> 
+        <option value="">American Samoa</option> <!-- NEEDS WORK -->
+        <option value="arizona.html">Arizona</option>
+        <option value="arkansas.html">Arkansas</option> <!-- NEEDS WORK -->
+        <option value="california.html">California</option> <!-- NEEDS WORK -->
+        <option value="colorado.html">Colorado</option>
+        <option value="connecticut.html">Connecticut</option>
+        <option value="delaware.html">Delaware</option>
+        <option value="volunteer.html">District of Columbia</option>
+        <option value="">Florida</option> <!-- NEEDS WORK --> 
+        <option value="georgia.html">Georgia</option>
+        <option value="guam.html">Guam</option>
+        <option value="">Hawaii</option> <!-- NO IN PERSON VOTING --> 
+        <option value="idaho.html">Idaho</option>
+        <option value="illinois.html">Illinois</option> <!-- NEEDS WORK --> 
+        <option value="indiana.html">Indiana</option>
+        <option value="iowa.html">Iowa</option>
+        <option value="kansas.html">Kansas</option>
+        <option value="kentucky.html">Kentucky</option>
+        <option value="louisiana.html">Louisiana</option>
+        <option value="maine.html">Maine</option>
+        <option value="maryland.html">Maryland</option>
+        <option value="massachusetts.html">Massachusetts</option>
+        <option value="michigan.html">Michigan</option>
+        <option value="minnesota.html">Minnesota</option>
+        <option value="mississippi.html">Mississippi</option>
+        <option value="missouri.html">Missouri</option>
+        <option value="montana.html">Montana</option>
+        <option value="nebraska.html">Nebraska</option>
+        <option value="nevada.html">Nevada</option>
+        <option value="newHampshire.html">New Hampshire</option> <!-- NEEDS WORK --> 
+        <option value="newJersey.html">New Jersey</option>
+        <option value="newMexico.html">New Mexico</option> <!-- NEEDS WORK --> 
+        <option value="newYork.html">New York</option>
+        <option value="northCarolina.html">North Carolina</option>
+        <option value="northDakota.html">North Dakota</option>
+        <option value="">Northern Mariana Islands</option> <!-- NEEDS WORK -->  
+        <option value="ohio.html">Ohio</option>
+        <option value="oklahoma.html">Oklahoma</option>
+        <option value="https://sos.oregon.gov/elections/Pages/countyofficials.aspx">Oregon</option> <!-- NEEDS WORK -->  
+        <option value="pennsylvania.html">Pennsylvania</option>
+        <option value="">Puerto Rico</option> <!-- NEEDS WORK -->  
+        <option value="rhodeIsland.html">Rhode Island</option>
+        <option value="southCarolina.html">South Carolina</option>
+        <option value="">South Dakota</option> <!-- NEEDS WORK -->
+        <option value="tennessee.html">Tennessee</option>
+        <option value="texas.html">Texas</option>
+        <option value="">Utah</option> <!-- NEEDS WORK --> 
+        <option value="https://sos.vermont.gov/elections/town-clerks/">Vermont</option> <!-- NEEDS WORK --> 
+        <option value="virginia.html">Virginia</option>
+        <option value="https://www.sos.wa.gov/elections/voters/voter-registration/county-elections-offices">Washington</option> <!-- NEEDS WORK --> 
+        <option value="westVirginia.html">West Virginia</option>
+        <option value="wisconsin.html">Wisconsin</option>
+        <option value="wyoming.html">Wyoming</option>
+        <option value="virginIslands.html">U.S. Virgin Islands</option>        
+      
+      </select><br><br>
+  
+      <input type="submit" onclick="redirectToDestination()" value="Submit">
+    </div>
+    </form>
+  
+    <div id="response"></div>
+
+
+
+
+    
+
+    
+  </body>
+  </html>
