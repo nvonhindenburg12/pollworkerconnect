@@ -90,11 +90,10 @@
   margin-top: 30px;
   font-family: Poppins, Arial;
   color:rgb(73, 73, 73); 
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
+  width: 60%
 }
-
-
 
 
 .signUp-button {
