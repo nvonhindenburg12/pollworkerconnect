@@ -4,7 +4,7 @@
 // enter value and put in redirect url to root (/)
 const redirectoptions = [
   ["page1", "/page1"],
-  ["Road to Vote University", "https://google.com"]
+  ["Poll Worker Connect University", "https://google.com"]
 ]
 
 //  i can explain it to you later, this is really the whole thing
