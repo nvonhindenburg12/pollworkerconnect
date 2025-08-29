@@ -48,21 +48,6 @@
 }
 
 
-.donate-button:hover{
-  background-color: rgb(0, 0, 0);
-  color: white;
-}
-
-.about-button:hover{
-  background-color: rgb(0, 0, 0);
-  color: white;
-}
-
-.contact-button:hover{
-  background-color: rgb(0, 0, 0);
-  color: white;
-}
-
 
 .title {
   display: flex;
@@ -122,8 +107,7 @@
 }
 
 .volunteer-button:hover {
-  padding: 15px 25px;
-  border-radius: 45px;
+
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.75);
 }
 
@@ -149,7 +133,7 @@
   margin-bottom: 0px;
   margin-top: 0px;
   font-family: Poppins, Arial;
-  color:rgb(73, 73, 73); 
+  color:rgb(0, 0, 0); 
   font-size: 25px;
   text-align: center;
   width: 60%
@@ -163,9 +147,434 @@ body {
   display: inline-block;
   width: 700px;
   background-color: white;
-  background-color: rgb(248, 211, 110);
+  background-color: rgb(255, 255, 255);
   padding: 25px;
   margin-top: 50px;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 5px Dashed #000;
+  border-image: linear-gradient(to right, red,white,blue) 1;
+
+
+}
+
+/* Benefits Section */
+.benefits-section {
+    background: white;
+    padding: 4rem 2rem;
+    margin: 4rem auto;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    text-align: center;
+    font-family: Poppins;
+}
+
+.benefits-title {
+    font-size: 2.5rem;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    font-family: Poppins;
+}
+
+.benefits-subtitle {
+    color: #64748b;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+    font-family: Poppins;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.benefit-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: left;
+    border: 1px solid rgba(30, 64, 175, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: Poppins;
+}
+
+.benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.benefit-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-family: Poppins;
+}
+
+.benefit-description {
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+    font-family: Poppins;
+}
+
+/* Responsive Design for Benefits */
+@media (max-width: 768px) {
+    .benefits-section {
+        padding: 2rem 1rem;
+        margin: 2rem 1rem;
+    }
+    
+    .benefits-title {
+        font-size: 2rem;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .benefit-card {
+        padding: 1.5rem;
+    }
+}
+
+.state-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    width: 320px;
+    font-family: Poppins;
+    z-index: 1000;
+    border: 2px solid #e2e8f0;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+
+.popup-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+    font-family: Poppins;
+}
+
+.popup-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #64748b;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.popup-close:hover {
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+.popup-subtitle {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0 0 1rem 0;
+    font-family: Poppins;
+}
+
+.state-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.state-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.virginia-btn {
+    background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 100%);
+    color: #92400e;
+}
+
+.virginia-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
+}
+
+.newjersey-btn {
+    background: linear-gradient(135deg, #ddd6fe 0%, #8b5cf6 100%);
+    color: #5b21b6;
+}
+
+.newjersey-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+}
+
+.state-flag {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+}
+
+.state-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.state-name {
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: Poppins;
+}
+
+.election-date {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    font-family: Poppins;
+}
+
+.popup-note {
+    font-size: 0.8rem;
+    color: #64748b;
+    text-align: center;
+    margin: 0;
+    font-style: italic;
+    font-family: Poppins;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .state-popup {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+    }
+}
+
+/* Hide popup class */
+.state-popup.hidden {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.state-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    width: 320px;
+    font-family: Poppins;
+    z-index: 1000;
+    border: 2px solid #e2e8f0;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+
+.popup-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+    font-family: Poppins;
+}
+
+.popup-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #64748b;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.popup-close:hover {
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+.popup-subtitle {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0 0 1rem 0;
+    font-family: Poppins;
+}
+
+.state-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.state-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.virginia-btn {
+    background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 100%);
+    color: #92400e;
+}
+
+.virginia-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
+}
+
+.newjersey-btn {
+    background: linear-gradient(135deg, #ddd6fe 0%, #8b5cf6 100%);
+    color: #5b21b6;
+}
+
+.newjersey-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+}
+
+.state-flag {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+}
+
+.state-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.state-name {
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: Poppins;
+}
+
+.election-date {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    font-family: Poppins;
+}
+
+.popup-note {
+    font-size: 0.8rem;
+    color: #64748b;
+    text-align: center;
+    margin: 0;
+    font-style: italic;
+    font-family: Poppins;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .state-popup {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+    }
+}
+
+/* Hide popup class */
+.state-popup.hidden {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
 }

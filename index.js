@@ -1,6 +1,6 @@
 // script.js
 // Set the date and time you're counting down to
-const targetDate = new Date("November 5, 2024 ").getTime();  // Set your specific date and time here
+const targetDate = new Date("November 3, 2025 ").getTime();  // Set your specific date and time here
 
 // Update the countdown every 1 second
 const x = setInterval(function() {
@@ -27,3 +27,38 @@ const x = setInterval(function() {
         document.getElementById("timer").innerHTML = "EXPIRED";
     }
 }, 1000);
+
+// State popup functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('statePopup');
+    const closeButton = document.getElementById('closePopup');
+    
+    // Show popup after 3 seconds
+    setTimeout(() => {
+        popup.style.display = 'block';
+    }, 3000);
+    
+    // Close popup when X is clicked
+    closeButton.addEventListener('click', function() {
+        popup.classList.add('hidden');
+        // Completely hide after animation
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 500);
+    });
+    
+    // Optional: Close popup when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!popup.contains(event.target) && !popup.classList.contains('hidden')) {
+            popup.classList.add('hidden');
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 500);
+        }
+    });
+    
+    // Don't close popup when clicking inside it
+    popup.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+});
