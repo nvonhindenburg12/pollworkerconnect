@@ -75,11 +75,50 @@
   margin-top: 20px;
   font-family: Poppins, Arial;
   color:rgb(44, 44, 44); 
-  font-size: 25px;
+  font-size: 30px;
   text-align: center;
-  width: 70%
+  width: 70%;
+  overflow: hidden;
+  border-right: 2px solid;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: black; }
+}
+
+.description-text1 {
+  margin-top: 20px;
+  font-family: Poppins, Arial;
+  color:rgb(44, 44, 44); 
+  font-size: 30px;
+  text-align: center;
+  width: 70%;
+  overflow: hidden;
+  border-right: 2px solid;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3s steps(40, end) 2s, blink-caret 0.75s step-end infinite;
+  
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: black; }
+}
 
 .volunteer {
   display: flex;
@@ -578,3 +617,109 @@ body {
     opacity: 0;
     pointer-events: none;
 }
+
+#us-map{
+  display: block;
+  width: 100% !important;           /* Changed from 100% to make it smaller */
+  max-width: 750px !important;     /* Added maximum width */
+  height: auto !important;         /* Changed from 100% to auto */
+  margin: 2rem auto !important;    /* Added center positioning with margins */
+  position: relative !important;   /* Changed from absolute to relative */
+  top: auto !important;            /* Reset top positioning */
+  left: auto !important;           /* Reset left positioning */
+}
+
+path:hover, circle:hover {
+  stroke: #002868 !important;
+  stroke-width:2px;
+  stroke-linejoin: round;
+  fill: #002868 !important;
+  cursor: pointer;
+}
+
+#path67 {
+  fill: none !important;
+  stroke: #A9A9A9 !important;
+  cursor: default;
+}
+
+#info-box {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  background-color: #ffffff;
+  border: 2px solid #BF0A30;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: arial;
+}
+
+/* Additional responsive styling */
+@media (max-width: 768px) {
+  #us-map {
+    width: 80% !important;
+    max-width: 400px !important;
+  }
+}
+
+/* Popup positioning only - keeps your existing countdown styling */
+.countdown-popup {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    animation: slideIn 0.5s ease-out;
+
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #666;
+}
+
+.popup-close:hover {
+    color: #000;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.countdown-popup.hidden {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    .countdown-popup {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+    }
+    
+.countdown-square {
+    padding: 20px;
+    border-radius: 20px; /* curves the border */
+    background: 
+      linear-gradient(white, white) padding-box,   /* inner background */
+      linear-gradient(to right, red, white, blue) border-box; /* gradient border */
+    border: 5px solid transparent; /* required for gradient border */
+}
+}
+
