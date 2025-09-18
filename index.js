@@ -1,3 +1,32 @@
+// Simple scroll function
+function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    const elementPosition = element.offsetTop;
+    const offsetPosition = elementPosition - -60; // Adjust this value to control positioning
+    
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+    });
+}
+
+
+// Optional: Auto-scroll tour button
+function startAutoScroll() {
+    const sections = ['hero', 'benefits', 'map'];
+    let index = 0;
+    
+    const scrollNext = () => {
+        if (index < sections.length) {
+            scrollToSection(sections[index]);
+            index++;
+            setTimeout(scrollNext, 3000);
+        }
+    };
+    
+    scrollNext();
+}
+
 // script.js
 // Set the date and time you're counting down to
 const targetDate = new Date("November 3, 2025 ").getTime();  // Set your specific date and time here
@@ -99,26 +128,26 @@ $("path, circle").click(function(e) {
     'MT': 'montana.html',
     'NE': 'nebraska.html',
     'NV': 'nevada.html',
-    'NH': 'newhampshire.html',
-    'NJ': 'newjersey.html',
-    'NM': 'newmexico.html',
-    'NY': 'newyork.html',
-    'NC': 'northcarolina.html',
-    'ND': 'northdakota.html',
+    'NH': 'newHampshire.html',
+    'NJ': 'newJersey.html',
+    'NM': 'newMexico.html',
+    'NY': 'newYork.html',
+    'NC': 'northCarolina.html',
+    'ND': 'northDakota.html',
     'OH': 'ohio.html',
     'OK': 'oklahoma.html',
     'OR': 'oregon.html',
     'PA': 'pennsylvania.html',
-    'RI': 'rhodeisland.html',
-    'SC': 'southcarolina.html',
-    'SD': 'southdakota.html',
+    'RI': 'rhodeIsland.html',
+    'SC': 'southCarolina.html',
+    'SD': 'southDakota.html',
     'TN': 'tennessee.html',
     'TX': 'texas.html',
     'UT': 'utah.html',
     'VT': 'vermont.html',
     'VA': 'virginia.html',
     'WA': 'washington.html',
-    'WV': 'westvirginia.html',
+    'WV': 'westVirginia.html',
     'WI': 'wisconsin.html',
     'WY': 'wyoming.html',
     'DC': 'dc.html', //fix link//

@@ -1,3 +1,62 @@
+/* Enable smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Section containers for better scrolling */
+.section {
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    animation: bounce 2s infinite;
+}
+
+#hero .scroll-indicator {
+    bottom: 0rem !important;
+}
+
+.choose-state-arrow {
+    bottom: 2rem;
+}
+
+.scroll-arrow {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    border-top: none;
+    border-right: none;
+    transform: rotate(-45deg);
+    margin: 0 auto;
+}
+
+.scroll-text {
+    font-family: Poppins;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+
 .text {
   font-family: Poppins;
 }
@@ -41,7 +100,7 @@
   padding-right: 16px;
   border-radius: 25px;
   font-weight:bold;
-  font-size: 35px;
+  font-size: 30px;
   cursor:pointer;
   transition: background-color 0.15s,
     color 0.15s;
@@ -72,18 +131,20 @@
 
 
 .description-text {
-  margin-top: 20px;
-  font-family: Poppins, Arial;
-  color:rgb(44, 44, 44); 
-  font-size: 30px;
-  text-align: center;
-  width: 70%;
-  overflow: hidden;
-  border-right: 2px solid;
-  white-space: nowrap;
-  margin: 0 auto;
-  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-}
+    margin-top: 20px;
+    font-family: Poppins, Arial;
+    color:rgb(44, 44, 44); 
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    border-right: 2px solid;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: 
+    typing 3s steps(40, end),
+    blink-caret 0.75s step-end 0s 4 forwards;
+  }
 
 @keyframes typing {
     from { width: 0 }
@@ -96,19 +157,18 @@
 }
 
 .description-text1 {
-  margin-top: 20px;
-  font-family: Poppins, Arial;
-  color:rgb(44, 44, 44); 
-  font-size: 30px;
-  text-align: center;
-  width: 70%;
-  overflow: hidden;
-  border-right: 2px solid;
-  white-space: nowrap;
-  margin: 0 auto;
-  animation: typing 3s steps(40, end) 2s, blink-caret 0.75s step-end infinite;
-  
-}
+    margin-top: 20px;
+    font-family: Poppins, Arial;
+    color:rgb(44, 44, 44); 
+    font-size: 30px;
+    text-align: center;
+    width: 0; /* Start hidden */
+    overflow: hidden;
+    border-right: 2px solid transparent; /* Start with transparent border */
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3s steps(40, end) 3s both, blink-caret 0.75s step-end infinite 3s;
+  }
 
 @keyframes typing {
     from { width: 0 }
@@ -173,7 +233,7 @@
   margin-top: 0px;
   font-family: Poppins, Arial;
   color:rgb(0, 0, 0); 
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
   width: 60%
 }
@@ -182,26 +242,13 @@ body {
   text-align: center;
 }
 
-.countdown-square {
-  display: inline-block;
-  width: 700px;
-  background-color: white;
-  background-color: rgb(255, 255, 255);
-  padding: 25px;
-  margin-top: 50px;
-  border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  border: 5px Dashed #000;
-  border-image: linear-gradient(to right, red,white,blue) 1;
 
-
-}
 
 /* Benefits Section */
 .benefits-section {
     background: white;
     padding: 4rem 2rem;
-    margin: 4rem auto;
+    margin: 20rem auto;
     border-radius: 24px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     max-width: 1200px;
@@ -383,7 +430,6 @@ body {
     background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 100%);
     color: #92400e;
 }
-
 .virginia-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
@@ -629,6 +675,7 @@ body {
   left: auto !important;           /* Reset left positioning */
 }
 
+
 path:hover, circle:hover {
   stroke: #002868 !important;
   stroke-width:2px;
@@ -643,18 +690,7 @@ path:hover, circle:hover {
   cursor: default;
 }
 
-#info-box {
-  display: none;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 1;
-  background-color: #ffffff;
-  border: 2px solid #BF0A30;
-  border-radius: 5px;
-  padding: 5px;
-  font-family: arial;
-}
+
 
 /* Additional responsive styling */
 @media (max-width: 768px) {
@@ -713,13 +749,48 @@ path:hover, circle:hover {
         right: 10px;
     }
     
-.countdown-square {
-    padding: 20px;
-    border-radius: 20px; /* curves the border */
-    background: 
-      linear-gradient(white, white) padding-box,   /* inner background */
-      linear-gradient(to right, red, white, blue) border-box; /* gradient border */
-    border: 5px solid transparent; /* required for gradient border */
-}
 }
 
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .countdown-popup {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+    }
+}
+
+/* Hide popup class */
+.countdown-popup.hidden {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.countdown-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    width: 500px;
+    font-family: Poppins;
+    z-index: 1000;
+    border: 2px solid #e2e8f0;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
