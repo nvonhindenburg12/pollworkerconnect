@@ -9,7 +9,6 @@ html {
     padding: 2rem 0;
 }
 
-/* Scroll indicator */
 .scroll-indicator {
     position: absolute;
     bottom: 2rem;
@@ -17,14 +16,21 @@ html {
     transform: translateX(-50%);
     cursor: pointer;
     animation: bounce 2s infinite;
+    z-index: 10;
 }
 
 #hero .scroll-indicator {
-    bottom: 0rem !important;
+    bottom: -5rem !important;
+    pointer-events: auto !important;
+}
+
+#hero {
+    overflow: visible !important;
+    position: relative;
 }
 
 .choose-state-arrow {
-    bottom: 2rem;
+    bottom: 16rem;
 }
 
 .scroll-arrow {
@@ -56,7 +62,6 @@ html {
     }
 }
 
-
 .text {
   font-family: Poppins;
 }
@@ -69,7 +74,6 @@ html {
   font-weight: 700px;
 }
 
-
 .left-side {
   display: flex;
   align-items: center;
@@ -79,7 +83,6 @@ html {
   height: 100px;
   margin-left: 10px;
 }
-
 
 .right-side {
   display: flex;
@@ -102,18 +105,14 @@ html {
   font-weight:bold;
   font-size: 30px;
   cursor:pointer;
-  transition: background-color 0.15s,
-    color 0.15s;
+  transition: background-color 0.15s, color 0.15s;
 }
-
-
 
 .title {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-
 
 .website-title { 
   font-family: Poppins, Arial;
@@ -129,9 +128,9 @@ html {
   justify-content: center;
 }
 
-
 .description-text {
     margin-top: 20px;
+    font-weight: 600;
     font-family: Poppins, Arial;
     color:rgb(44, 44, 44); 
     font-size: 30px;
@@ -144,7 +143,7 @@ html {
     animation: 
     typing 3s steps(40, end),
     blink-caret 0.75s step-end 0s 4 forwards;
-  }
+}
 
 @keyframes typing {
     from { width: 0 }
@@ -158,33 +157,23 @@ html {
 
 .description-text1 {
     margin-top: 20px;
+        font-weight: 600;
     font-family: Poppins, Arial;
     color:rgb(44, 44, 44); 
     font-size: 30px;
     text-align: center;
-    width: 0; /* Start hidden */
+    width: 0;
     overflow: hidden;
-    border-right: 2px solid transparent; /* Start with transparent border */
+    border-right: 2px solid transparent;
     white-space: nowrap;
     margin: 0 auto;
     animation: typing 3s steps(40, end) 3s both, blink-caret 0.75s step-end infinite 3s;
-  }
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: black; }
 }
 
 .volunteer {
   display: flex;
   flex-direction: row;
   justify-content: center;
-
 }
 
 .volunteer-button {
@@ -206,43 +195,16 @@ html {
 }
 
 .volunteer-button:hover {
-
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.75);
-}
-
-#countdown {
-  text-align: center;
-  color: rgb(0, 0, 0);
-}
-
-#timer {
-  font-size: 48px;
-  letter-spacing: 2px;
-  margin-bottom: 0px;
-  margin-top: 15px;
-  font-family: Poppins, Arial;
 }
 
 .body {
   background-color: #ffffff;
-  
-}
-
-.countdown-text {
-  margin-bottom: 0px;
-  margin-top: 0px;
-  font-family: Poppins, Arial;
-  color:rgb(0, 0, 0); 
-  font-size: 20px;
-  text-align: center;
-  width: 60%
 }
 
 body {
   text-align: center;
 }
-
-
 
 /* Benefits Section */
 .benefits-section {
@@ -316,7 +278,292 @@ body {
     font-family: Poppins;
 }
 
-/* Responsive Design for Benefits */
+/* State Popup */
+.state-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    width: 320px;
+    font-family: Poppins;
+    z-index: 1000;
+    border: 2px solid #e2e8f0;
+    display: none; /* Keep hidden initially */
+    /* REMOVE: animation: slideInRight 0.5s ease-out; */
+}
+
+/* Only animate when showing */
+.state-popup.show {
+    display: block;
+    animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+
+.popup-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+    font-family: Poppins;
+}
+
+.popup-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #64748b;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.popup-close:hover {
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+.popup-subtitle {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0 0 1rem 0;
+    font-family: Poppins;
+}
+
+.state-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.state-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.virginia-btn {
+    background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 100%);
+    color: #92400e;
+}
+
+.virginia-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
+}
+
+.newjersey-btn {
+    background: linear-gradient(135deg, #ddd6fe 0%, #8b5cf6 100%);
+    color: #5b21b6;
+}
+
+.newjersey-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+}
+
+.state-flag {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+}
+
+.state-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.state-name {
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: Poppins;
+}
+
+.election-date {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    font-family: Poppins;
+}
+
+.popup-note {
+    font-size: 0.8rem;
+    color: #64748b;
+    text-align: center;
+    margin: 0;
+    font-style: italic;
+    font-family: Poppins;
+}
+
+.state-popup.hidden {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Countdown Popup - Matching State Popup Style */
+.countdown-popup {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    width: 320px;
+    font-family: Poppins;
+    z-index: 1000;
+    border: 2px solid #e2e8f0;
+    animation: slideInLeft 0.5s ease-out;
+    display: none; /* ADD THIS LINE */
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.countdown-popup.hidden {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+.countdown-square {
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+}
+
+.countdown-popup .popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #64748b;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.countdown-popup .popup-close:hover {
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+.countdown-text {
+    margin-bottom: 0.5rem;
+    margin-top: 0px;
+    font-family: Poppins;
+    color: #64748b;
+    font-size: 0.9rem;
+    text-align: center;
+    width: 100%;
+}
+
+.countdown-text:first-of-type {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#countdown {
+    text-align: center;
+}
+
+#timer {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    font-family: Poppins;
+    color: #1e293b;
+}
+
+/* US Map */
+#us-map {
+    display: block;
+    width: 100% !important;
+    max-width: 750px !important;
+    height: auto !important;
+    margin: 2rem auto !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+}
+
+path:hover, circle:hover {
+    stroke: #002868 !important;
+    stroke-width: 2px;
+    stroke-linejoin: round;
+    fill: #002868 !important;
+    cursor: pointer;
+}
+
+#path67 {
+    fill: none !important;
+    stroke: #A9A9A9 !important;
+    cursor: default;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .benefits-section {
         padding: 2rem 1rem;
@@ -335,462 +582,83 @@ body {
     .benefit-card {
         padding: 1.5rem;
     }
-}
 
-.state-popup {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    padding: 1.5rem;
-    width: 320px;
-    font-family: Poppins;
-    z-index: 1000;
-    border: 2px solid #e2e8f0;
-    animation: slideIn 0.5s ease-out;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.popup-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 0.5rem;
-}
-
-.popup-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin: 0;
-    font-family: Poppins;
-}
-
-.popup-close {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #64748b;
-    cursor: pointer;
-    padding: 0;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
-}
-
-.popup-close:hover {
-    background-color: #f1f5f9;
-    color: #1e293b;
-}
-
-.popup-subtitle {
-    font-size: 0.9rem;
-    color: #64748b;
-    margin: 0 0 1rem 0;
-    font-family: Poppins;
-}
-
-.state-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-}
-
-.state-button {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: 1px solid #e2e8f0;
-}
-
-.virginia-btn {
-    background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 100%);
-    color: #92400e;
-}
-.virginia-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
-}
-
-.newjersey-btn {
-    background: linear-gradient(135deg, #ddd6fe 0%, #8b5cf6 100%);
-    color: #5b21b6;
-}
-
-.newjersey-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
-}
-
-.state-flag {
-    font-size: 1.5rem;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-}
-
-.state-info {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.state-name {
-    font-weight: 600;
-    font-size: 1rem;
-    font-family: Poppins;
-}
-
-.election-date {
-    font-size: 0.8rem;
-    opacity: 0.8;
-    font-family: Poppins;
-}
-
-.popup-note {
-    font-size: 0.8rem;
-    color: #64748b;
-    text-align: center;
-    margin: 0;
-    font-style: italic;
-    font-family: Poppins;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
     .state-popup {
         bottom: 10px;
         right: 10px;
         left: 10px;
         width: auto;
     }
+
+    .countdown-popup {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        width: auto;
+        max-width: 320px;
+    }
+
+    #us-map {
+        width: 80% !important;
+        max-width: 400px !important;
+    }
 }
 
-/* Hide popup class */
-.state-popup.hidden {
-    transform: translateX(100%);
-    opacity: 0;
-    pointer-events: none;
-}
 
-.state-popup {
+/* Small Tab on the Edge - Horizontal */
+.state-tab {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    padding: 1.5rem;
-    width: 320px;
+    right: -10px;
+    top: 80%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #fbbf24 0%, #8b5cf6 100%);
+    color: white;
+    padding: 0.75rem 1rem 0.75rem 0.75rem;
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
     font-family: Poppins;
-    z-index: 1000;
-    border: 2px solid #e2e8f0;
-    animation: slideIn 0.5s ease-out;
+    font-weight: 600;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: right 0.3s ease;
+    display: none !important;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-@keyframes slideIn {
+.state-tab.visible {
+    display: flex !important;
+    animation: slideInFromRight 0.5s ease-out forwards;
+}
+
+@keyframes slideInFromRight {
     from {
-        transform: translateX(100%);
-        opacity: 0;
+        right: -150px;
     }
     to {
-        transform: translateX(0);
-        opacity: 1;
+        right: -10px;
     }
 }
 
-.popup-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 0.5rem;
+.state-tab:hover {
+    right: -10px;
 }
 
-.popup-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin: 0;
-    font-family: Poppins;
-}
-
-.popup-close {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #64748b;
-    cursor: pointer;
-    padding: 0;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
-}
-
-.popup-close:hover {
-    background-color: #f1f5f9;
-    color: #1e293b;
-}
-
-.popup-subtitle {
-    font-size: 0.9rem;
-    color: #64748b;
-    margin: 0 0 1rem 0;
-    font-family: Poppins;
-}
-
-.state-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-}
-
-.state-button {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: 1px solid #e2e8f0;
-}
-
-.virginia-btn {
-    background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 100%);
-    color: #92400e;
-}
-
-.virginia-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
-}
-
-.newjersey-btn {
-    background: linear-gradient(135deg, #ddd6fe 0%, #8b5cf6 100%);
-    color: #5b21b6;
-}
-
-.newjersey-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
-}
-
-.state-flag {
-    font-size: 1.5rem;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-}
-
-.state-info {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.state-name {
-    font-weight: 600;
-    font-size: 1rem;
-    font-family: Poppins;
-}
-
-.election-date {
-    font-size: 0.8rem;
-    opacity: 0.8;
-    font-family: Poppins;
-}
-
-.popup-note {
-    font-size: 0.8rem;
-    color: #64748b;
+.tab-text {
+    line-height: 1.2;
     text-align: center;
-    margin: 0;
-    font-style: italic;
-    font-family: Poppins;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .state-popup {
-        bottom: 10px;
-        right: 10px;
-        left: 10px;
-        width: auto;
-    }
+.tab-arrow {
+    font-size: 1.2rem;
 }
 
-/* Hide popup class */
-.state-popup.hidden {
-    transform: translateX(100%);
-    opacity: 0;
-    pointer-events: none;
+/* Hide the popup initially */
+.state-popup {
+    display: none;
 }
 
-#us-map{
-  display: block;
-  width: 100% !important;           /* Changed from 100% to make it smaller */
-  max-width: 750px !important;     /* Added maximum width */
-  height: auto !important;         /* Changed from 100% to auto */
-  margin: 2rem auto !important;    /* Added center positioning with margins */
-  position: relative !important;   /* Changed from absolute to relative */
-  top: auto !important;            /* Reset top positioning */
-  left: auto !important;           /* Reset left positioning */
-}
-
-
-path:hover, circle:hover {
-  stroke: #002868 !important;
-  stroke-width:2px;
-  stroke-linejoin: round;
-  fill: #002868 !important;
-  cursor: pointer;
-}
-
-#path67 {
-  fill: none !important;
-  stroke: #A9A9A9 !important;
-  cursor: default;
-}
-
-
-
-/* Additional responsive styling */
-@media (max-width: 768px) {
-  #us-map {
-    width: 80% !important;
-    max-width: 400px !important;
-  }
-}
-
-/* Popup positioning only - keeps your existing countdown styling */
-.countdown-popup {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 1000;
-    animation: slideIn 0.5s ease-out;
-
-}
-
-.popup-close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: #666;
-}
-
-.popup-close:hover {
-    color: #000;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.countdown-popup.hidden {
-    transform: translateX(-100%);
-    opacity: 0;
-    transition: all 0.5s ease;
-}
-
-@media (max-width: 768px) {
-    .countdown-popup {
-        bottom: 10px;
-        left: 10px;
-        right: 10px;
-    }
-    
-}
-
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .countdown-popup {
-        bottom: 10px;
-        right: 10px;
-        left: 10px;
-        width: auto;
-    }
-}
-
-/* Hide popup class */
-.countdown-popup.hidden {
-    transform: translateX(100%);
-    opacity: 0;
-    pointer-events: none;
-}
-
-.countdown-popup {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    padding: 1.5rem;
-    width: 500px;
-    font-family: Poppins;
-    z-index: 1000;
-    border: 2px solid #e2e8f0;
-    animation: slideIn 0.5s ease-out;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.state-popup.show {
+    display: block;
 }

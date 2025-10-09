@@ -1,15 +1,14 @@
 // Simple scroll function
-function scrollToSection(sectionId) {
+function scrollToSection(sectionId, customOffset = 280) {
     const element = document.getElementById(sectionId);
     const elementPosition = element.offsetTop;
-    const offsetPosition = elementPosition - -60; // Adjust this value to control positioning
+    const offsetPosition = elementPosition + customOffset;
     
     window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
     });
 }
-
 
 // Optional: Auto-scroll tour button
 function startAutoScroll() {
@@ -27,78 +26,54 @@ function startAutoScroll() {
     scrollNext();
 }
 
-// script.js
+// Function to scroll to map and show state popup after delay
+function scrollToMapAndShowTab(offset) {
+    // First, scroll to the map section
+    scrollToSection('map', offset);
+    
+    // Then show the full state popup after 1 second
+    setTimeout(() => {
+        const statePopup = document.getElementById('statePopup');
+        const stateTab = document.getElementById('stateTab');
+        
+        if (statePopup) {
+            statePopup.classList.add('show');
+            statePopup.style.display = 'block';
+        }
+        
+        // Hide the tab if it's visible
+        if (stateTab) {
+            stateTab.classList.remove('visible');
+        }
+    }, 1000);
+}
+
 // Set the date and time you're counting down to
-const targetDate = new Date("November 3, 2025 ").getTime();  // Set your specific date and time here
+const targetDate = new Date("November 3, 2025 ").getTime();
 
 // Update the countdown every 1 second
 const x = setInterval(function() {
-
-    // Get the current date and time
     const now = new Date().getTime();
-
-    // Find the difference between now and the countdown date
     const distance = targetDate - now;
 
-    // Time calculations for days, hours, minutes, and seconds
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Display the result in the element with id="timer"
     document.getElementById("timer").innerHTML = 
         `${days} : ${hours.toString().padStart(2, '0')} : ${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`;
 
-    // If the countdown is over, display some text
     if (distance < 0) {
         clearInterval(x);
         document.getElementById("timer").innerHTML = "EXPIRED";
     }
 }, 1000);
 
-// State popup functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const popup = document.getElementById('statePopup');
-    const closeButton = document.getElementById('closePopup');
-    
-    // Show popup after 3 seconds
-    setTimeout(() => {
-        popup.style.display = 'block';
-    }, 3000);
-    
-    // Close popup when X is clicked
-    closeButton.addEventListener('click', function() {
-        popup.classList.add('hidden');
-        // Completely hide after animation
-        setTimeout(() => {
-            popup.style.display = 'none';
-        }, 500);
-    });
-    
-    // Optional: Close popup when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!popup.contains(event.target) && !popup.classList.contains('hidden')) {
-            popup.classList.add('hidden');
-            setTimeout(() => {
-                popup.style.display = 'none';
-            }, 500);
-        }
-    });
-    
-    // Don't close popup when clicking inside it
-    popup.addEventListener('click', function(event) {
-        event.stopPropagation();
-    });
-});
-
-
-
-// NEW: Click functionality to navigate to state pages
+// Click functionality to navigate to state pages
 $("path, circle").click(function(e) {
   var stateId = $(this).attr('id');
   
-  // State ID to filename mapping
   var statePages = {
     'AL': 'alabama.html',
     'AK': 'alaska.html', 
@@ -150,10 +125,9 @@ $("path, circle").click(function(e) {
     'WV': 'westVirginia.html',
     'WI': 'wisconsin.html',
     'WY': 'wyoming.html',
-    'DC': 'dc.html', //fix link//
+    'DC': 'dc.html',
   };
   
-  // Navigate to the state page
   var statePage = statePages[stateId];
   if (statePage) {
     window.location.href = statePage;
@@ -169,29 +143,58 @@ if(ios) {
   });
 }
 
-
+// COUNTDOWN POPUP - Uses unique variable names
 document.addEventListener('DOMContentLoaded', function() {
-    const popup = document.getElementById('countdownPopup');
-    const closeButton = document.getElementById('closeCountdown');
+    const countdownPopup = document.getElementById('countdownPopup');
+    const countdownCloseButton = document.getElementById('closeCountdown');
     
-    // Show popup after 3 seconds
+    // Show popup after 6 seconds
     setTimeout(() => {
-        popup.style.display = 'block';
-    }, 3000);
+        countdownPopup.style.display = 'block';
+    }, 6000);
     
     // Close popup when X is clicked
-    closeButton.addEventListener('click', function() {
-        popup.classList.add('hidden');
+    countdownCloseButton.addEventListener('click', function() {
+        countdownPopup.classList.add('hidden');
         setTimeout(() => {
-            popup.style.display = 'none';
+            countdownPopup.style.display = 'none';
         }, 500);
     });
     
     // Don't close when clicking inside popup
-    popup.addEventListener('click', function(event) {
+    countdownPopup.addEventListener('click', function(event) {
         event.stopPropagation();
     });
 });
-
-// Add your existing countdown timer code here
-
+// STATE POPUP - Uses unique variable names
+document.addEventListener('DOMContentLoaded', function() {
+    const statePopup = document.getElementById('statePopup');
+    const stateTab = document.getElementById('stateTab');
+    const stateCloseButton = document.getElementById('closePopup');
+    
+    // Show tab after 6 seconds
+    setTimeout(() => {
+        stateTab.classList.add('visible');
+    }, 6000);
+    
+    // Click tab to open full popup
+    stateTab.addEventListener('click', function() {
+        statePopup.classList.add('show');
+        statePopup.style.display = 'block';
+        stateTab.classList.remove('visible');
+    });
+    
+    // Close popup with X button - return to tab
+    stateCloseButton.addEventListener('click', function() {
+        statePopup.classList.add('hidden');
+        setTimeout(() => {
+            statePopup.style.display = 'none';
+            statePopup.classList.remove('hidden', 'show');
+            stateTab.classList.add('visible');
+        }, 500);
+    });
+    
+    statePopup.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+});
