@@ -49,7 +49,7 @@ function scrollToMapAndShowTab(offset) {
 }
 
 // Set the date and time you're counting down to
-const targetDate = new Date("November 3, 2025 ").getTime();
+const targetDate = new Date("November 3, 2026 ").getTime();
 
 // Update the countdown every 1 second
 const x = setInterval(function() {
